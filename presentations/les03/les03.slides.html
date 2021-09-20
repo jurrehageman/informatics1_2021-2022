@@ -14099,7 +14099,7 @@ div.jp-OutputPrompt {
 <div class="slides"><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Lesson-3">Lesson 3<a class="anchor-link" href="#Lesson-3">&#182;</a></h1><p>Jurre Hageman</p>
+<h1 id="Lesson-3">Lesson 3<a class="anchor-link" href="#Lesson-3">&#182;</a></h1><p>Jurre Hageman &amp; Kim van Adrichem</p>
 
 </div>
 </div></section></section><section><section>
@@ -14126,7 +14126,21 @@ These include:</p>
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The <code>None</code> keyword is used to define... nothing, a null value, no value. It is used as a kind of flag for nothing. So why is this useful? Imagine you are analyzing data from a digital weather station device. You are recording the temperature in degrees Celsius. The device did not boot yet. Now how do you store the temperature? 0 is obviously wrong as temperature is an example of an interval scale. There is no true zero for temperature in Celsius. A temperature of 20°C is not twice as warm as 10°C! Hence, it is not a ratio scale but an inteval scale (20°C is 10°C warmer compared to a temperature of 10°C). You could set it to an empty string but that would be clumpsy too. <code>None</code> comes in very handy here. It is clear that there is no temperature received yet.</p>
+<p>The <code>None</code> keyword is used to define... nothing, a null value, no value. It is used as a kind of flag for nothing. It is definitely <strong>not</strong> the same as 0, an empty string, an empty list, etc.</p>
+<p>Imagine asking someone how many people have signed up for an event by putting their name on a list. 0 would mean that no people have signed up. It means that you <em>do</em> know something: you know that there are no people on the list.
+<code>None</code>, on the other hand, means that there is no value. No one counted the people on the list, or maybe the list got lost and nobody can even count them. It, in a way, indicates the absence of information.</p>
+
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>So why is <code>None</code> useful? Imagine you are analyzing data from a digital weather station device. You are recording the temperature in degrees Celsius. The device did not boot yet. Now how do you store the temperature? There are multiple options you might think would work:</p>
+<ul>
+<li>0 might seem as the easiest solution, but has an obvious problem: the device could also measure a temperature of 0. It is not possible after saving the values whether a 0 was saved because it was relatively cold that day, or because the sensor did not work.</li>
+<li>A very large number is not much better. Yes, you should never measure 9999 degrees celcius, but computers don't know. You always have to perform extra checks yourself, which always results in extra confusion and (unnoticed) errors.</li>
+<li>An empty string could never be misstaken for a number, but also this has problems. A string (as we've already seen) does not (usually) behave like an integer, which could lead to weird errors which are hard to interpret.</li>
+</ul>
+<p>You can see that <code>None</code> comes in very handy here. It is clear that there is no temperature received yet.</p>
 
 </div>
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15033,20 +15047,20 @@ The following code will <strong>not</strong> copy items from a list:</p>
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Some-usefull-functions:">Some usefull functions:<a class="anchor-link" href="#Some-usefull-functions:">&#182;</a></h2><p>Like the <code>len</code> function, <code>min</code>, <code>max</code> and <code>sum</code> work on all collections. They are very usefull for lists:</p>
+<h2 id="Some-useful-functions:">Some useful functions:<a class="anchor-link" href="#Some-useful-functions:">&#182;</a></h2><p>Like the <code>len</code> function, <code>min</code>, <code>max</code> and <code>sum</code> work on all collections. They are very useful for lists:</p>
 
 </div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15069,7 +15083,7 @@ The following code will <strong>not</strong> copy items from a list:</p>
 <pre>4
 2
 9
-9
+22
 </pre>
 </div>
 </div>
@@ -15102,7 +15116,7 @@ The following code will <strong>not</strong> copy items from a list:</p>
 </div></div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>While the former functions work on every collection, there are also some usefull list methods. You can get an overview using <code>dir(list)</code>. We will cover some of them (<code>count</code> and <code>index</code>):</p>
+<p>While the former functions work on every collection, there are also some useful list methods. You can get an overview using <code>dir(list)</code>. We will cover some of them (<code>count</code> and <code>index</code>):</p>
 
 </div>
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15754,10 +15768,13 @@ You need to swap the keys and values:</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bases_dna</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">bases_rna</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">bases_dna</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">bases_rna</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bases_dna</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">bases_rna</span><span class="p">))</span> <span class="c1"># returns the set of elements that are present in both sets</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bases_dna</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">bases_rna</span><span class="p">))</span> <span class="c1"># returns the set of elements present in either set</span>
 <span class="c1">#dir(bases_dna)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">bases_dna</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">bases_rna</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bases_dna</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">bases_rna</span><span class="p">))</span> <span class="c1"># returns the set of elements present in bases_dna, but not bases_rna</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bases_rna</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">bases_dna</span><span class="p">))</span> <span class="c1"># returns the set of elements present in bases_rna, but not bases_dna</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">bases_dna</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span><span class="n">bases_rna</span><span class="p">))</span> <span class="c1"># returns the set of elements present in either set, but not in both</span>
 </pre></div>
 
      </div>
