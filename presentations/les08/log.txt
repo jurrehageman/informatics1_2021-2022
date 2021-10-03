@@ -1,0 +1,2 @@
+sequence converted to: gatc
+sequence converted to: cccc

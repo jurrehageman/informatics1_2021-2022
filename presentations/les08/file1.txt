@@ -1,0 +1,3 @@
+This is a text file.
+If you open it with a text editor, you will be able to read the text.
+End of message...
